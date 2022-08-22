@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "test",
+    "version": "1.0",
+  
+    "description": "testing stuff",
+    "icons": {
+        "16":"/images/img-16-2.png",
+        "48":"/images/img-48-2.png",
+        "128":"/images/img-128-2.png"
+    },
+    "content_scripts": [
+        {
+          "run_at" : "document_idle",
+          "matches": ["*.atlassian.net/browse/*"],
+          "js": ["timer-script.js"],
+          "css":["c.css"]
+        }
+      ],
+    "action":{
+      "default_popup":"popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "storage"
+    ],
+    "host_permissions": ["*.atlassian.net/browse/*"]
+  }

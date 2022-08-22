@@ -1,0 +1,82 @@
+<!-- this is used for testing functionalitys -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel=stylesheet href=c.css>
+    <script>
+        window.onload = function () {
+            document.getElementById("timer-collapse").onclick = function () { collapse() };
+            function collapse() {
+                if (document.getElementById("timer-collapse").innerText == "▼") {
+
+                    document.getElementById("timer-collapse").classList.remove("timer-visible");
+                    document.getElementById("timer-collapse").classList.add("timer-clps");
+
+                    document.getElementById("timer-presenter").style.display = "none";
+                    document.getElementById("Timming-timer").classList.toggle("timer-hidden");
+                    document.getElementById("timer-collapse").innerText = "▲";
+                }
+                else {
+                    document.getElementById("timer-presenter").style.display = "block";
+
+                    document.getElementById("timer-collapse").classList.remove("timer-clps");
+                    document.getElementById("timer-collapse").classList.add("timer-visible");
+
+                    document.getElementById("Timming-timer").classList.toggle("timer-hidden");
+                    document.getElementById("timer-collapse").innerText = "▼";
+                }
+
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", 'http://localhost:3000/extension/lw-chrome-extension/db.php', true);
+                companyID = 453;
+                humanID = 956;
+                web = 'testing';
+                agile = '5452';
+                timer = '2147489999';
+
+                xhr.onload = function () {
+                    alert(xhr.responseText);
+                };
+
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhr.send('companyID='+companyID+
+                '&humanID='+humanID+
+                '&web='+web+
+                '&agile='+agile+
+                '&timer='+timer);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="Timming-timer">
+        <div id="timer-contents">
+            <div id="timer-presenter">
+                <p id="agile"></p>
+                <table>
+                    <tr>
+                        <td><button id="actionButton" class="timer-btn">||</button></td>
+                        <td>
+                            <input class="timers" id="days" disabled="disabled"><input class="timers" id="hours"
+                                disabled="disabled"><input class="timers" id="minutes" disabled="disabled"><input
+                                class="timers" id="seconds" disabled="disabled">
+                        </td>
+                        <td><button id="editButton" class="timer-btn">🛠</button></td>
+                    </tr>
+                </table>
+                </br>
+                <button id="completeButton" class="timer-btn">Submit</button>
+                </br>
+                </br>
+            </div>
+            <button id="timer-collapse" class="timer-visible">▼</button>
+
+        </div>
+    </div>
+</body>
+<!-- ▲ ▼-->
+
+</html>

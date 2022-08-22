@@ -1,0 +1,55 @@
+#Timming-timer{
+    all: initial !important;
+    background-color: rgb(241, 247, 255) !important;
+    z-index: 1000 !important;
+    position: fixed !important;
+    bottom: 10px !important;
+    right: 10px !important;
+    padding: 10px!important;
+    box-shadow: 0px 0px 10px 5px rgb(137, 165, 206) !important;
+    /* border-style: solid !important;
+    border-width: 1px !important; */
+    text-align: center !important;
+    
+} 
+.timers{
+    width: 20px !important;
+    padding: 0px !important;
+    text-align: center !important;
+}
+#timer-contents{
+    position:relative;
+}
+#timer-collapse{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+.timer-visible{
+    position:absolute;
+    right:0;
+    bottom: 0;
+}   
+.timer-hidden{
+    display:inline-block !important;
+    padding: 50px;
+}
+.timer-clps{
+    /* position: fixed;
+    right:unset;
+    bottom:unset; */
+    margin:0px 0px 0px 0px;
+}
+.timer-btn{
+    background-color: blue;
+    border: none;
+    color:white;
+    border-radius: 10px;
+    margin:0px auto;
+    height: 30px;
+    width: 50px;
+    padding:3px;
+}
